@@ -1,12 +1,6 @@
-// netlify/functions/getImage.js
-const fetch = require('node-fetch');
-
 exports.handler = async function(event, context) {
-  // Get the base URL from the environment variable
   const imageBaseUrl = process.env.IMAGE_BASE_URL;
-
-  // Extract the image ID from the query parameters
-  const imageId = event.queryStringParameters.id;
+  const imageId = event.queryStringParameters?.id;
 
   if (!imageId) {
     return {
@@ -20,14 +14,13 @@ exports.handler = async function(event, context) {
   try {
     const response = await fetch(imageUrl);
 
-    // If the image request fails, return a default image or an error
     if (!response.ok) {
-        // You can provide a base64 encoded default image here
-        const defaultImage = 'data:image/jpeg;base64,...'; // Replace with your base64 encoded default image
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ dataUrl: defaultImage }),
-        };
+      // Base64 placeholder image (you should replace this with actual base64)
+      const defaultImage = 'data:image/jpeg;base64,...';
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ dataUrl: defaultImage }),
+      };
     }
 
     const arrayBuffer = await response.arrayBuffer();
