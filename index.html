@@ -1,120 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>id2img - ULAB ID to Image Viewer</title>
     <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "meetwzqgp2");
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "meetwzqgp2");
     </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; color: #333333; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 100vh; padding: 20px; height:90%; }
-        header { width: 100%; background-color: #2c3e50; color: #ffffff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; border-radius: 8px; margin-bottom: 20px; height:80px; }
-        header img { width:100%; height:15%; }
-        .container { text-align: center; background-color: #ffffff; border-radius: 12px; padding: 30px; width: 100%; max-width: 500px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
-        code { color: white; }
-        form { margin-top: 20px; }
-        form label { display: block; margin-bottom: 10px; font-size: 16px; color: #333333; }
-        form input { width: 100%; padding: 12px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; margin-bottom: 20px; transition: border-color 0.3s ease; }
-        form input:focus { border-color: #1abc9c; }
-        form button { width: 100%; padding: 12px; font-size: 16px; font-weight: bold; color: #ffffff; background-color: #1abc9c; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease; }
-        form button:hover { background-color: #16a085; }
-        #imageContainer img { max-width: 100%; margin-top: 20px; border-radius: 8px; }
-        footer { margin-top: 20px; width: 100%; background-color: #2c3e50; color: #ffffff; padding: 10px; text-align: center; font-size: 14px; border-radius: 8px; margin-bottom:14%; }
-        footer a { color: #1abc9c; text-decoration: none; font-weight: bold; }
-        footer a:hover { text-decoration: underline; }
-        @media (max-width: 768px) { form label, form input, form button { font-size: 14px; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 20px;
+            height: 90%;
+        }
+
+        header {
+            width: 100%;
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            height: 80px;
+        }
+
+        header img {
+            width: 100%;
+            height: 15%;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        code {
+            color: white;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333333;
+        }
+
+        form input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus {
+            border-color: #1abc9c;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #16a085;
+        }
+
+        #imageContainer img {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 8px;
+            margin-bottom: 14%;
+        }
+
+        footer a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+
+            form label,
+            form input,
+            form button {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<header>
-    <div>
-        <img src="logo.png" alt="Logo">
+    <header>
+        <div>
+            <img src="logo.png" alt="Logo">
+        </div>
+        <code>finding your image!</code>
+    </header>
+
+    <div class="container">
+        <h2>View Image by ULAB ID</h2>
+        <form id="idForm">
+            <input type="number" id="imageId" placeholder="Enter any ULAB ID " required>
+            <button type="submit">Show Image</button>
+        </form>
+        <div id="imageContainer"></div>
     </div>
-    <code>finding your image!</code>
-</header>
 
-<div class="container">
-    <h2>View Image by ULAB ID</h2>
-    <form id="idForm">
-        <input type="number" id="imageId" placeholder="Enter any ULAB ID " required>
-        <button type="submit">Show Image</button>
-    </form>
-    <div id="imageContainer"></div>
-</div>
+    <footer>
+        Developed by <a href="https://fb.com/md.shahriar.alam.sikey" target="_blank">Shahriar</a>
+    </footer>
 
-<footer>
-    Developed by <a href="https://fb.com/md.shahriar.alam.sikey" target="_blank">Shahriar</a>
-</footer>
+    <script>
+        document.getElementById('idForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-<script>
-    document.getElementById('idForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
+            const imageId = document.getElementById('imageId').value.trim();
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = '';
 
-        const imageId = document.getElementById('imageId').value.trim();
-        const imageContainer = document.getElementById('imageContainer');
-        imageContainer.innerHTML = '';
-
-        if (!imageId) {
-            return;
-        }
-
-        const loadingMessage = document.createElement('p');
-        loadingMessage.textContent = 'Loading image...';
-        imageContainer.appendChild(loadingMessage);
-
-        const mapping = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
-        const convertedLetters = imageId.split('').map(digit => mapping[parseInt(digit)]).join('');
-        
-        const lettersElement = document.createElement('p');
-        lettersElement.textContent = `Image of: ${convertedLetters}`;
-        lettersElement.style.fontWeight = 'bold';
-        lettersElement.style.marginTop = '20px';
-        lettersElement.style.color = '#16a085';
-
-        try {
-            const response = await fetch(`/.netlify/functions/getImage?id=${imageId}`);
-            
-            if (!response.ok) {
-                throw new Error('Failed to fetch image from function.');
+            if (!imageId) {
+                return;
             }
 
-            const data = await response.json();
-            
-            imageContainer.innerHTML = '';
-            
-            const imgElement = document.createElement('img');
-            imgElement.src = data.dataUrl;
-            imgElement.alt = `Image for ID: ${imageId}`;
+            const loadingMessage = document.createElement('p');
+            loadingMessage.textContent = 'Loading image...';
+            imageContainer.appendChild(loadingMessage);
 
-            imageContainer.appendChild(lettersElement);
-            imageContainer.appendChild(imgElement);
+            const mapping = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+            const convertedLetters = imageId.split('').map(digit => mapping[parseInt(digit)]).join('');
 
-        } catch (error) {
-            console.error("Error:", error);
-            imageContainer.innerHTML = '';
-            
-            const errorMessage = document.createElement('p');
-            errorMessage.textContent = 'Error: Image could not be loaded.';
-            errorMessage.style.color = 'red';
-            errorMessage.style.marginTop = '20px';
-            imageContainer.appendChild(errorMessage);
-            
-            const imgElement = document.createElement('img');
-            imgElement.src = `https://media.istockphoto.com/id/1352945762/vector/no-image-available-like-missing-picture.jpg?s=612x612&w=0&k=20&c=4X-znbt02a8EIdxwDFaxfmKvUhTnLvLMv1i1f3bToog=`;
-            imgElement.alt = "Image not found";
-            imageContainer.appendChild(imgElement);
-        }
-    });
-</script> 
+            const lettersElement = document.createElement('p');
+            lettersElement.textContent = `Image of: ${convertedLetters}`;
+            lettersElement.style.fontWeight = 'bold';
+            lettersElement.style.marginTop = '20px';
+            lettersElement.style.color = '#16a085';
+
+            try {
+                const response = await fetch(`/.netlify/functions/getImage?id=${imageId}`);
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch image from function.');
+                }
+
+                const data = await response.json();
+
+                imageContainer.innerHTML = '';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = data.dataUrl;
+                imgElement.alt = `Image for ID: ${imageId}`;
+
+                imageContainer.appendChild(lettersElement);
+                imageContainer.appendChild(imgElement);
+
+            } catch (error) {
+                console.error("Error:", error);
+                imageContainer.innerHTML = '';
+
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = 'Error: Image could not be loaded.';
+                errorMessage.style.color = 'red';
+                errorMessage.style.marginTop = '20px';
+                imageContainer.appendChild(errorMessage);
+
+                const imgElement = document.createElement('img');
+                imgElement.src = `https://media.istockphoto.com/id/1352945762/vector/no-image-available-like-missing-picture.jpg?s=612x612&w=0&k=20&c=4X-znbt02a8EIdxwDFaxfmKvUhTnLvLMv1i1f3bToog=`;
+                imgElement.alt = "Image not found";
+                imageContainer.appendChild(imgElement);
+            }
+        });
+    </script>
 
 </body>
-</html>
 
-            
+</html>
