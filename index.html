@@ -12,6 +12,46 @@
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "meetwzqgp2");
     </script>
+    <script>
+        // Show popup on every visit
+window.addEventListener('load', function () {
+    alert('Please use this tool legally and responsibly.');
+});
+
+// Add legal-use checkbox before submit button
+window.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('idForm');
+    if (!form) return;
+
+    const checkboxWrapper = document.createElement('div');
+    checkboxWrapper.style.marginBottom = '15px';
+    checkboxWrapper.style.textAlign = 'left';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = 'legalUseCheckbox';
+    checkbox.style.marginRight = '8px';
+
+    const label = document.createElement('label');
+    label.setAttribute('for', 'legalUseCheckbox');
+    label.textContent = 'I confirm my use is legal';
+
+    checkboxWrapper.appendChild(checkbox);
+    checkboxWrapper.appendChild(label);
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) {
+        submitButton.parentNode.insertBefore(checkboxWrapper, submitButton);
+    }
+
+    form.addEventListener('submit', function (e) {
+        if (!checkbox.checked) {
+            e.preventDefault();
+            alert('You must confirm legal use before proceeding.');
+        }
+    });
+});
+    </script>
     <style>
         * {
             margin: 0;
